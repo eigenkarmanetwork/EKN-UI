@@ -13,8 +13,8 @@
     </style>
     <script>
         function login(){
-            var username = document.getElementById("username").innerHTML;
-            var password = document.getElementById("password").innerHTML;
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
             var data = {"username": username, "password": password};
 
             var xhttp = new XMLHttpRequest();
