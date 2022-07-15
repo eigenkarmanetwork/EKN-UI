@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Eigen Trust Network</title>
+    <title>Eigen Trust Network - Register</title>
     <style>
         body {
             text-align: center;
@@ -12,9 +12,23 @@
         }
     </style>
     <script>
-        function login(){
+        function register(){
             var username = document.getElementById("username").value;
             var password = document.getElementById("password").value;
+            var confirm = document.getElementById("confirm").value;
+
+            if(password !== confirm){
+                document.getElementById("notice").innerHTML = "Password's did not match.";
+                document.getElementById("notice").style = "color: red;";
+                return;
+            }
+
+            if(password == ""){
+                document.getElementById("notice").innerHTML = "Password can not be blank.";
+                document.getElementById("notice").style = "color: red;";
+                return;
+            }
+
             var data = {"username": username, "password": password};
 
             var xhttp = new XMLHttpRequest();
@@ -22,15 +36,16 @@
                 if(this.readyState == 4 && this.status == 200){
                     document.getElementById("notice").innerHTML = "Success";
                     document.getElementById("notice").style = "color: green;";
-                }else if(this.readyState == 4 && this.status == 403){
-                    document.getElementById("notice").innerHTML = "Username or Password is incorrect.";
+                    window.location.href = "http://www.eigentrust.net/index.html";
+                }else if(this.readyState == 4 && this.status == 409){
+                    document.getElementById("notice").innerHTML = "Username is not available.";
                     document.getElementById("notice").style = "color: red;";
                 }else if(this.readyState == 4){
                     document.getElementById("notice").innerHTML = "An unknown error occurred.";
                     document.getElementById("notice").style = "color: red;";
                 }
             }
-            xhttp.open("POST", "http://www.eigentrust.net:31415/verify_credentials", true);
+            xhttp.open("POST", "http://www.eigentrust.net:31415/register_user", true);
             xhttp.setRequestHeader("Content-type", "application/json");
             xhttp.setRequestHeader("Accept", "text/plain");
             xhttp.send(JSON.stringify(data));
@@ -39,21 +54,23 @@
         function addListeners(){
             var username = document.getElementById("username")
             var password = document.getElementById("password")
+            var confirm = document.getElementById("confirm")
 
             function click(event){
                 if(event.key === "Enter"){
                     event.preventDefault();
-                    document.getElementById("login").click();
+                    document.getElementById("register").click();
                 }
             }
 
             username.addEventListener("keypress", click);
             password.addEventListener("keypress", click);
+            confirm.addEventListener("keypress", click);
         }
     </script>
   </head>
   <body onload="javascript:addListeners();">
-    <h1>Login</h1>
+    <h1>Register</h1>
     <span id="notice"></span>
     <table>
     <tr>
@@ -64,9 +81,11 @@
         <td>Password:</td>
         <td><input id="password" type="password"></td>
     </tr>
+    <tr>
+        <td>Confirm:</td>
+        <td><input id="confirm" type="password"></td>
+    </tr>
     </table>
-    <button id="login" onclick="javascript:login()">Login</button>
-    <br>
-    <a href="register.html">Register</a>
+    <button id="register" onclick="javascript:register()">Register</button>
   </body>
 </html>
