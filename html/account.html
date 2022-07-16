@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Eigen Trust Network - Account</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    <script>
+        // Verify logged in or redirect and die.
+
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for(let i = 0; i <ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        var username = getCooke("username");
+        var password = getCooke("password");
+        var data = {"username": username, "password": password};
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                return;
+            }else if(this.readyState == 4){
+                window.location.href = "http://www.eigentrust.net/index.html";
+                document.getElementsByTagName("html")[0].innerHTML = "Please Login.";
+            }
+        }
+        xhttp.open("POST", "http://www.eigentrust.net:31415/verify_credentials_hash", false);
+        xhttp.setRequestHeader("Content-type", "application/json");
+        xhttp.setRequestHeader("Accept", "text/plain");
+        xhttp.send(JSON.stringify(data));
+
+
+        function addInfo(){
+            document.getElementById("welcome").innerHTML = "Welcome " + username;
+        }
+    </script>
+  </head>
+  <body onload="javascript:addInfo();">
+    <h1 id="welcome">Welcome</h1>
+    <br>
+    <h4>GDPR</h4>
+    <br>
+    <button onclick="javascript:alert('I do not work yet');">Get all data about me</button>
+  </body>
+</html>
