@@ -30,8 +30,8 @@
             return "";
         }
 
-        var username = getCooke("username");
-        var password = getCooke("password");
+        var username = getCookie("username");
+        var password = getCookie("password");
         var data = {"username": username, "password": password};
 
         var xhttp = new XMLHttpRequest();
@@ -50,6 +50,7 @@
 
 
         function addInfo(){
+            var username = getCookie("username");
             document.getElementById("welcome").innerHTML = "Welcome " + username;
         }
     </script>
