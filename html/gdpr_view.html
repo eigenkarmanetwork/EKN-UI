@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Eigen Trust Network - Account</title>
+    <title>Eigen Trust Network - GDPR View</title>
     <style>
         body {
             text-align: center;
@@ -50,16 +50,47 @@
 
 
         function addInfo(){
+            var output = document.getElementById("output");
             var username = getCookie("username");
-            document.getElementById("welcome").innerHTML = "Welcome " + username;
+            var password = document.getElementById("pass").value;
+            var data = {"username": username, "password": password};
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    output.innerHTML = this.responseText;
+                    var raw_data = JSON.parse(this.responseText);
+                }else if(this.readyState == 4 && this.status == 403){
+                    output.innerHTML = "Password is incorrect.";
+                }else if(this.readyState == 4){
+                    output.innerHTML = "An unknown error occured.";
+                }
+            }
+            xhttp.open("POST", "http://www.eigentrust.net:31415/gdpr_view", true);
+            xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.setRequestHeader("Accept", "text/plain");
+            xhttp.send(JSON.stringify(data));
         }
+
+        function addListeners(){
+            var password = document.getElementById("pass")
+
+            function click(event){
+                if(event.key === "Enter"){
+                    event.preventDefault();
+                    document.getElementById("submit").click();
+                }
+            }
+
+            password.addEventListener("keypress", click);
+        }
+
     </script>
   </head>
-  <body onload="javascript:addInfo();">
-    <h1 id="welcome">Welcome</h1>
+  <body onload="javascript:addListeners();">
+    <h1>GDPR View</h1>
     <br>
-    <h4>GDPR</h4>
-    <br>
-    <button onclick="javascript:document.location.href='gdpr_view.html';">Get all data about me</button>
+    Please enter your password:<br>
+    <input type="password" id="pass"> <button id="submit" onclick="javascript:addInfo();">Get GDPR Report</button>
+    <p id="output"></p>
   </body>
 </html>
