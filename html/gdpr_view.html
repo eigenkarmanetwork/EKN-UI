@@ -9,6 +9,11 @@
         table {
             margin-left: auto;
             margin-right: auto;
+            border-collapse: collapse;
+        }
+        table td, table th{
+            border: solid 1px #000;
+            word-wrap: break-word;
         }
     </style>
     <script>
@@ -58,7 +63,44 @@
             xhttp.onreadystatechange = function(){
                 if(this.readyState == 4 && this.status == 200){
                     output.innerHTML = this.responseText;
+                    output.innerHTML += "<br>";
                     var raw_data = JSON.parse(this.responseText);
+                    var tables = {};
+                    for(let row of raw_data){
+                        let key = String(Object.keys(row));
+                        if(key in tables){
+                            let html_row = document.createElement("tr");
+                            for(col of Object.keys(row)){
+                                let cell = document.createElement("td");
+                                let cont = document.createTextNode(row[col]);
+                                cell.appendChild(cont);
+                                html_row.appendChild(cell);
+                            }
+                            tables[key].appendChild(html_row);
+                        }else{
+                            tables[key] = document.createElement("table");
+                            let html_row = document.createElement("tr");
+                            for(col of Object.keys(row)){
+                                let cell = document.createElement("th");
+                                let cont = document.createTextNode(col);
+                                cell.appendChild(cont);
+                                html_row.append(cell);
+                            }
+                            tables[key].appendChild(html_row);
+                            let html_row2 = document.createElement("tr");
+                            for(col of Object.keys(row)){
+                                let cell = document.createElement("td");
+                                let cont = document.createTextNode(row[col]);
+                                cell.appendChild(cont);
+                                html_row2.append(cell);
+                            }
+                            tables[key].appendChild(html_row2);
+                        }
+                    }
+                    for(table of Object.keys(tables)){
+                        output.appendChild(document.createElement("br"));
+                        output.appendChild(tables[table]);
+                    }
                 }else if(this.readyState == 4 && this.status == 403){
                     output.innerHTML = "Password is incorrect.";
                 }else if(this.readyState == 4){
