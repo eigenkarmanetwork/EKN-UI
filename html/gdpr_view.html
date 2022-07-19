@@ -56,10 +56,13 @@
 
         function toggleJSON(){
             var json = document.getElementById("json");
+            var toggle = document.getElementById("toggle");
             if(json.style.display == "none"){
                 json.style.display = "inherit";
+                toggle.innerHTML = "Hide JSON";
             }else{
                 json.style.display = "none";
+                toggle.innerHTML = "View JSON";
             }
         }
 
@@ -72,7 +75,7 @@
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function(){
                 if(this.readyState == 4 && this.status == 200){
-                    output.innerHTML = "<button onclick='javascript:toggleJSON();'>View JSON</button>";
+                    output.innerHTML = "<button id='toggle' onclick='javascript:toggleJSON();'>View JSON</button>";
                     output.innerHTML += "<br><div id='json' style='display: none;'></div>";
                     document.getElementById("json").innerHTML = "<br>" + this.responseText;
                     var raw_data = JSON.parse(this.responseText);
