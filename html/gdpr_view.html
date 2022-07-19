@@ -54,6 +54,16 @@
         xhttp.send(JSON.stringify(data));
 
 
+        function toggleJSON(){
+            var json = document.getElementById("json");
+            if(json.style.display == "none"){
+                json.style.display = "inherit";
+            }else{
+                json.style.display = "none";
+            }
+        }
+
+
         function addInfo(){
             var output = document.getElementById("output");
             var username = getCookie("username");
@@ -62,8 +72,9 @@
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function(){
                 if(this.readyState == 4 && this.status == 200){
-                    output.innerHTML = this.responseText;
-                    output.innerHTML += "<br>";
+                    output.innerHTML = "<button onclick='javascript:toggleJSON();'>View JSON</button>";
+                    output.innerHTML += "<br><div id='json' style='display: none;'></div>";
+                    document.getElementById("json").innerHTML = "<br>" + this.responseText;
                     var raw_data = JSON.parse(this.responseText);
                     var tables = {};
                     for(let row of raw_data){
