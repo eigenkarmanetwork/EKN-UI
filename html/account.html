@@ -49,17 +49,28 @@
         xhttp.send(JSON.stringify(data));
 
 
+        function logout(){
+            document.cookie = "username=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "hash=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            window.location.href = "http://www.eigentrust.net/index.html";
+        }
+
+
         function addInfo(){
             var username = getCookie("username");
             document.getElementById("welcome").innerHTML = "Welcome " + username;
         }
     </script>
   </head>
+
   <body onload="javascript:addInfo();">
+    <div style="text-align: right;">
+        <button onclick="javascript:logout()">Logout</button>
+    </div>
     <h1 id="welcome">Welcome</h1>
     <br>
     <h4>GDPR</h4>
     <br>
-    <button onclick="javascript:document.location.href='gdpr_view.html';">Get all data about me</button>
+    <button onclick="javascript:document.location.href='gdpr_view.html';">Get All Data About Me</button>
   </body>
 </html>
