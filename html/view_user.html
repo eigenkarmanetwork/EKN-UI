@@ -64,7 +64,8 @@
             xhttp.onreadystatechange = function(){
                 if(this.readyState == 4 && this.status == 200){
                     var raw_data = JSON.parse(this.responseText);
-                    output.innerHTML = "You have voted for " + lookup + raw_data["votes"] + " times.";
+                    output.innerHTML = "You have voted for " + lookup + " ";
+                    output.innerHTML += raw_data["votes"] + " times.";
                 }else if(this.readyState == 4 && this.status == 403){
                     output.innerHTML = "Password is incorrect.";
                 }else if(this.readyState == 4){
