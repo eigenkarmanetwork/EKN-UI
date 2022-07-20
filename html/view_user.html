@@ -68,6 +68,10 @@
                     output.innerHTML += raw_data["votes"] + " times.";
                 }else if(this.readyState == 4 && this.status == 403){
                     output.innerHTML = "Password is incorrect.";
+                }else if(this.readyState == 4 && this.status == 404){
+                    output.innerHTML = "The username you tried to lookup does not exist.";
+                }else if(this.readyState == 4 && this.status == 400){
+                    output.innerHTML = "You cannot lookup yourself.";
                 }else if(this.readyState == 4){
                     output.innerHTML = "An unknown error occured.";
                 }

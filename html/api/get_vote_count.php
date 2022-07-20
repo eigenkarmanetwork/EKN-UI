@@ -13,6 +13,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $postdata);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-type: application/json"));
 $result = curl_exec($ch);
+http_response_code(curl_getinfo($ch, CURLINFO_RESPONSE_CODE));
 curl_close($ch);
 
 echo $result;
