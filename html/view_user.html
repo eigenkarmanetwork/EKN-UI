@@ -67,7 +67,11 @@
                 if(this.readyState == 4 && this.status == 200){
                     var raw_data = JSON.parse(this.responseText);
                     output.innerHTML = "You have voted for " + lookup + " ";
-                    output.innerHTML += raw_data["votes"] + " times.";
+                    if(raw_data["votes"] == 1){
+                        output.innerHTML += raw_data["votes"] + " time.";
+                    }else{
+                        output.innerHTML += raw_data["votes"] + " times.";
+                    }
                 }else if(this.readyState == 4 && this.status == 403){
                     output.innerHTML = "Password is incorrect.";
                 }else if(this.readyState == 4 && this.status == 404){
@@ -87,7 +91,7 @@
             xhttp.onreadystatechange = function(){
                 if(this.readyState == 4 && this.status == 200){
                     var raw_data = JSON.parse(this.responseText);
-                    output.innerHTML += "<br>There trust score within your trust network is ";
+                    output.innerHTML += "<br>Their score within your trust network is ";
                     output.innerHTML += raw_data["score"] + ".";
                 }else if(this.readyState == 4 && this.status == 403){
                     output.innerHTML = "Password is incorrect.";
