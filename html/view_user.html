@@ -59,7 +59,9 @@
             var username = getCookie("username");
             var password = document.getElementById("pass").value;
             var lookup = document.getElementById("lookup").value;
+
             var data = {"for": lookup, "from": username, "password": password};
+
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function(){
                 if(this.readyState == 4 && this.status == 200){
@@ -77,6 +79,27 @@
                 }
             }
             xhttp.open("POST", "http://www.eigentrust.net/api/get_vote_count.php", true);
+            xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.setRequestHeader("Accept", "text/plain");
+            xhttp.send(JSON.stringify(data));
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    var raw_data = JSON.parse(this.responseText);
+                    output.innerHTML += "<br>There trust score within your trust network is ";
+                    output.innerHTML += raw_data["score"] + ".";
+                }else if(this.readyState == 4 && this.status == 403){
+                    output.innerHTML = "Password is incorrect.";
+                }else if(this.readyState == 4 && this.status == 404){
+                    output.innerHTML = "The username you tried to lookup does not exist.";
+                }else if(this.readyState == 4 && this.status == 400){
+                    output.innerHTML = "You cannot lookup yourself.";
+                }else if(this.readyState == 4){
+                    output.innerHTML = "An unknown error occured.";
+                }
+            }
+            xhttp.open("POST", "http://www.eigentrust.net/api/get_score.php", true);
             xhttp.setRequestHeader("Content-type", "application/json");
             xhttp.setRequestHeader("Accept", "text/plain");
             xhttp.send(JSON.stringify(data));
