@@ -1,7 +1,7 @@
 <?php
 
 $json = file_get_contents("php://input");
-$data = json_decode($json);
+$data = json_decode($json, true);
 
 $data["service_name"] = "ETN";
 $data["service_key"] = getenv("ETN_SERVICE_KEY");
