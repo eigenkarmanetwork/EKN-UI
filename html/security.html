@@ -60,7 +60,7 @@
             var password = document.getElementById("pass").value;
             var security = document.getElementById("security").value;
 
-            var data = {"security": security, "from": username, "password": password};
+            var data = {"security": security, "username": username, "password": password};
 
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function(){
