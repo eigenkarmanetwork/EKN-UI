@@ -22,8 +22,11 @@
                 if(this.readyState == 4 && this.status == 200){
                     document.getElementById("notice").innerHTML = "Success";
                     document.getElementById("notice").style = "color: green;";
+                    var data = JSON.parse(this.responseText);
                     document.cookie = "username=" + username +";path=/";
-                    document.cookie = "hash=" + this.responseText +";path=/";
+                    document.cookie = "key=" + data["password"] +";path=/";
+                    document.cookie = "type=" + data["password_type"] +";path=/";
+                    document.cookie = "expires=" + data["expires"] +";path=/";
                     window.location.href = "http://www.eigentrust.net/account.html";
                 }else if(this.readyState == 4 && this.status == 403){
                     document.getElementById("notice").innerHTML = "Username or Password is incorrect.";
