@@ -31,8 +31,9 @@
         }
 
         var username = getCookie("username");
-        var password = getCookie("hash");
-        var data = {"username": username, "password": password};
+        var password = getCookie("key");
+        var password_type = getCookie("type");
+        var data = {"username": username, "password": password, "password_type": password_type};
 
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function(){
@@ -43,7 +44,7 @@
                 document.getElementsByTagName("html")[0].innerHTML = "Please Login.";
             }
         }
-        xhttp.open("POST", "http://www.eigentrust.net:31415/verify_credentials_hash", false);
+        xhttp.open("POST", "http://www.eigentrust.net/api/verify_credentials.php", false);
         xhttp.setRequestHeader("Content-type", "application/json");
         xhttp.setRequestHeader("Accept", "text/plain");
         xhttp.send(JSON.stringify(data));
@@ -51,7 +52,9 @@
 
         function logout(){
             document.cookie = "username=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-            document.cookie = "hash=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "key=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "type=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "expires=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
             window.location.href = "http://www.eigentrust.net/index.html";
         }
 
