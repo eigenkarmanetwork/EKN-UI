@@ -30,7 +30,7 @@
                     document.cookie = "key=" + data["password"] +";path=/";
                     document.cookie = "type=" + data["password_type"] +";path=/";
                     document.cookie = "expires=" + data["expires"] +";path=/";
-                    window.location.href = "http://www.eigentrust.net/account.php";
+                    window.location.href = "https://www.eigentrust.net/account.php";
                 }else if(this.readyState == 4 && this.status == 403){
                     document.getElementById("notice").innerHTML = "Username or Password is incorrect.";
                     document.getElementById("notice").style = "color: red;";
@@ -39,7 +39,7 @@
                     document.getElementById("notice").style = "color: red;";
                 }
             }
-            xhttp.open("POST", "http://www.eigentrust.net:31415/verify_credentials", true);
+            xhttp.open("POST", "https://www.eigentrust.net:31415/verify_credentials", true);
             xhttp.setRequestHeader("Content-type", "application/json");
             xhttp.setRequestHeader("Accept", "text/plain");
             xhttp.send(JSON.stringify(data));

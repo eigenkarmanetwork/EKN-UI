@@ -88,7 +88,7 @@
                     output.innerHTML = "An unknown error occured.";
                 }
             }
-            xhttp.open("POST", "http://www.eigentrust.net:31415/gdpr_view", true);
+            xhttp.open("POST", "https://www.eigentrust.net:31415/gdpr_view", true);
             xhttp.setRequestHeader("Content-type", "application/json");
             xhttp.setRequestHeader("Accept", "text/plain");
             xhttp.send(JSON.stringify(data));
