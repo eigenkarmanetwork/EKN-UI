@@ -39,7 +39,7 @@
                 if(this.readyState == 4 && this.status == 200){
                     document.getElementById("notice").innerHTML = "Success";
                     document.getElementById("notice").style = "color: green;";
-                    window.location.href = "http://www.eigentrust.net/index.html";
+                    window.location.href = "https://www.eigentrust.net/index.html";
                 }else if(this.readyState == 4 && this.status == 409){
                     document.getElementById("notice").innerHTML = "Username is not available.";
                     document.getElementById("notice").style = "color: red;";
@@ -48,7 +48,7 @@
                     document.getElementById("notice").style = "color: red;";
                 }
             }
-            xhttp.open("POST", "http://www.eigentrust.net:31415/register_user", true);
+            xhttp.open("POST", "https://www.eigentrust.net:31415/register_user", true);
             xhttp.setRequestHeader("Content-type", "application/json");
             xhttp.setRequestHeader("Accept", "text/plain");
             xhttp.send(JSON.stringify(data));

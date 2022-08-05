@@ -49,7 +49,7 @@
                     output.innerHTML = "An unknown error occured.";
                 }
             }
-            xhttp.open("POST", "http://www.eigentrust.net/api/get_vote_count.php", false);
+            xhttp.open("POST", "https://www.eigentrust.net/api/get_vote_count.php", false);
             xhttp.setRequestHeader("Content-type", "application/json");
             xhttp.setRequestHeader("Accept", "text/plain");
             xhttp.send(JSON.stringify(data));
@@ -70,7 +70,7 @@
                     output.innerHTML = "An unknown error occured.";
                 }
             }
-            xhttp.open("POST", "http://www.eigentrust.net/api/get_score.php", true);
+            xhttp.open("POST", "https://www.eigentrust.net/api/get_score.php", true);
             xhttp.setRequestHeader("Content-type", "application/json");
             xhttp.setRequestHeader("Accept", "text/plain");
             xhttp.send(JSON.stringify(data));
