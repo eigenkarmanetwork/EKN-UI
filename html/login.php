@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Eigen Trust Network</title>
+    <?php
+        $PAGE_TITLE = "Login";
+        require("head.php")
+    ?>
     <style>
-        body {
+        .container {
             text-align: center;
         }
         table {
@@ -59,20 +62,23 @@
     </script>
   </head>
   <body onload="javascript:addListeners();">
-    <h1>Login</h1>
-    <span id="notice"></span>
-    <table>
-    <tr>
-        <td>Username:</td>
-        <td><input id="username" type="text"></td>
-    </tr>
-    <tr>
-        <td>Password:</td>
-        <td><input id="password" type="password"></td>
-    </tr>
-    </table>
-    <button id="login" onclick="javascript:login()">Login</button>
-    <br>
-    <a href="register.html">Register</a>
+    <?php require("nav.php"); ?>
+    <div class="container">
+        <h1>Login</h1>
+        <span id="notice"></span>
+        <table>
+        <tr>
+            <td>Username:</td>
+            <td><input id="username" type="text"></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input id="password" type="password"></td>
+        </tr>
+        </table>
+        <button class="btn btn-primary" id="login" onclick="javascript:login()">Login</button>
+        <br>
+        <a href="register.html">Register</a>
+    </div>
   </body>
 </html>
