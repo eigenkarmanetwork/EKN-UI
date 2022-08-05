@@ -30,7 +30,7 @@
                     document.cookie = "key=" + data["password"] +";path=/";
                     document.cookie = "type=" + data["password_type"] +";path=/";
                     document.cookie = "expires=" + data["expires"] +";path=/";
-                    window.location.href = "http://www.eigentrust.net/account.html";
+                    window.location.href = "http://www.eigentrust.net/account.php";
                 }else if(this.readyState == 4 && this.status == 403){
                     document.getElementById("notice").innerHTML = "Username or Password is incorrect.";
                     document.getElementById("notice").style = "color: red;";

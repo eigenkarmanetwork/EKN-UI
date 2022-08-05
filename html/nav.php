@@ -11,9 +11,22 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/">Home</a>
                 </li>
+                <?php
+                    if(isset($_COOKIE["username"])){
+                        echo '
+                <li class="nav-item">
+                    <a class="nav-link" href="/account.php">Account</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout.html">Logout</a>
+                </li>';
+                    }else{
+                        echo '
                 <li class="nav-item">
                     <a class="nav-link" href="/login.php">Login</a>
-                </li>
+                </li>';
+                    }
+                ?>
             </ul>
         </div>
     </div>
