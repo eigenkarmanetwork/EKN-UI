@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Eigen Trust Network - GDPR View</title>
+    <?php
+        $PAGE_TITLE = "GDPR View";
+        require("head.php");
+    ?>
     <style>
-        body {
+        .container {
             text-align: center;
         }
         table {
@@ -39,7 +42,7 @@
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function(){
                 if(this.readyState == 4 && this.status == 200){
-                    output.innerHTML = "<button id='toggle' onclick='javascript:toggleJSON();'>View JSON</button>";
+                    output.innerHTML = "<button class='btn btn-secondary' id='toggle' onclick='javascript:toggleJSON();'>View JSON</button>";
                     output.innerHTML += "<br><div id='json' style='display: none;'></div>";
                     document.getElementById("json").innerHTML = "<br>" + this.responseText;
                     var raw_data = JSON.parse(this.responseText);
@@ -108,13 +111,14 @@
   </head>
 
   <body onload="javascript:addListeners();">
-    <div style="text-align:left;">
-        <button onclick="javascript:history.back();">Go Back</button>
+    <?php require("nav.php"); ?>
+    <div class="container">
+        <h1>GDPR View</h1>
+        <br>
+        Please enter your password:<br>
+        <input type="password" id="pass"><br>
+        <button style="margin:5px;" class="btn btn-primary" id="submit" onclick="javascript:addInfo();">Get GDPR Report</button>
+        <p id="output"></p>
     </div>
-    <h1>GDPR View</h1>
-    <br>
-    Please enter your password:<br>
-    <input type="password" id="pass"> <button id="submit" onclick="javascript:addInfo();">Get GDPR Report</button>
-    <p id="output"></p>
   </body>
 </html>

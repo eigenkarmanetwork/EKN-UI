@@ -1,11 +1,3 @@
-function logout(){
-    document.cookie = "username=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    document.cookie = "key=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    document.cookie = "type=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    document.cookie = "expires=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    window.location.href = "http://www.eigentrust.net/index.html";
-}
-
 // Verify logged in or redirect and die.
 
 function getCookie(cname) {
