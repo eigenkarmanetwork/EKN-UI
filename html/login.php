@@ -76,9 +76,7 @@
             <td><input id="password" type="password"></td>
         </tr>
         </table>
-        <button class="btn btn-primary" id="login" onclick="javascript:login()">Login</button>
-        <br>
-        <a href="register.html">Register</a>
+        <button style="margin:4px;" class="btn btn-primary" id="login" onclick="javascript:login()">Login</button>
     </div>
   </body>
 </html>

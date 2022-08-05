@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Eigen Trust Network - Trust User</title>
+    <?php
+        $PAGE_TITLE = "Change Security Level";
+        require("head.php");
+    ?>
     <style>
-        body {
+        .container {
             text-align: center;
         }
         table {
@@ -22,32 +25,27 @@
             var output = document.getElementById("output");
             var username = getCookie("username");
             var password = document.getElementById("pass").value;
-            var to = document.getElementById("to").value;
+            var security = document.getElementById("security").value;
 
-            var data = {"to": to, "from": username, "password": password};
+            var data = {"security": security, "username": username, "password": password};
 
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function(){
                 if(this.readyState == 4 && this.status == 200){
-                    output.innerHTML = "You have voted for " + to + ".";
+                    output.innerHTML = "Success.";
                 }else if(this.readyState == 4 && this.status == 403){
                     output.innerHTML = "Password is incorrect.";
-                }else if(this.readyState == 4 && this.status == 404){
-                    output.innerHTML = "The username you tried to vote for does not exist.";
-                }else if(this.readyState == 4 && this.status == 400){
-                    output.innerHTML = "You cannot vote for yourself.";
                 }else if(this.readyState == 4){
                     output.innerHTML = "An unknown error occured.";
                 }
             }
-            xhttp.open("POST", "http://www.eigentrust.net/api/vote.php", false);
+            xhttp.open("POST", "http://www.eigentrust.net:31415/change_security", true);
             xhttp.setRequestHeader("Content-type", "application/json");
             xhttp.setRequestHeader("Accept", "text/plain");
             xhttp.send(JSON.stringify(data));
         }
 
         function addListeners(){
-            var to = document.getElementById("to")
             var password = document.getElementById("pass")
 
             function click(event){
@@ -57,7 +55,6 @@
                 }
             }
 
-            to.addEventListener("keypress", click);
             password.addEventListener("keypress", click);
         }
 
@@ -65,16 +62,24 @@
   </head>
 
   <body onload="javascript:addListeners();">
-    <div style="text-align:left;">
-        <button onclick="javascript:history.back();">Go Back</button>
+    <?php require("nav.php"); ?>
+    <div class="container">
+        <h1>Change Security Level</h1>
+        <p>
+            There are three security settings with ETN.  The lowest security setting rquires you to sign in to make a new connection.  The medium security setting requires you to sign in once a day to be able to vote.  The higest security setting requires you to sign in every time you want to vote.
+        </p>
+        <br>
+        Please select your prefered security setting:<br>
+        <select id="security">
+            <option value="0">Lowest</option>
+            <option value="1">Medium</option>
+            <option value="2">Highest</option>
+        </select>
+        <br>
+        Please enter your password:<br>
+        <input type="password" id="pass"><br>
+        <button style="margin:5px;" class="btn btn-danger" id="submit" onclick="javascript:addInfo();">Confirm</button>
+        <p id="output"></p>
     </div>
-    <h1>Trust User</h1>
-    <br>
-    Please enter an ETN username:<br>
-    <input type="text" id="to"><br>
-    Please enter your password:<br>
-    <input type="password" id="pass"><br>
-    <button id="submit" onclick="javascript:addInfo();">Trust User</button>
-    <p id="output"></p>
   </body>
 </html>

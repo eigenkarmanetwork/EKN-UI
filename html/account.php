@@ -24,13 +24,13 @@
     <div class="container">
         <h1 id="welcome">Welcome</h1>
         <h4>Trust</h4>
-        <button class="btn btn-secondary" onclick="javascript:document.location.href='view_user.html';">View User</button><br>
+        <button class="btn btn-secondary" onclick="javascript:document.location.href='view_user.php';">View User</button><br>
         <br>
-        <button class="btn btn-secondary" onclick="javascript:document.location.href='trust_user.html';">Trust User</button>
+        <button class="btn btn-secondary" onclick="javascript:document.location.href='trust_user.php';">Trust User</button>
         <h4>Settings</h4>
-        <button class="btn btn-danger" onclick="javascript:document.location.href='security.html';">Security Level</button>
+        <button class="btn btn-danger" onclick="javascript:document.location.href='security.php';">Change Security Level</button>
         <h4>GDPR</h4>
-        <button class="btn btn-secondary" onclick="javascript:document.location.href='gdpr_view.html';">Get All Data About Me</button>
+        <button class="btn btn-secondary" onclick="javascript:document.location.href='gdpr_view.php';">Get All Data About Me</button>
     </div>
   </body>
 </html>

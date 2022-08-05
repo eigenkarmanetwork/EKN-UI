@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Eigen Trust Network - View User</title>
+    <?php
+        $PAGE_TITLE = "View User";
+        require("head.php");
+    ?>
     <style>
-        body {
+        .container {
             text-align: center;
         }
         table {
@@ -92,16 +95,16 @@
   </head>
 
   <body onload="javascript:addListeners();">
-    <div style="text-align:left;">
-        <button onclick="javascript:history.back();">Go Back</button>
+    <?php require("nav.php"); ?>
+    <div class="container">
+        <h1>View User</h1>
+        <br>
+        Please enter an ETN username:<br>
+        <input type="text" id="lookup"><br>
+        Please enter your password:<br>
+        <input type="password" id="pass"><br>
+        <button style="margin:5px;" class="btn btn-primary" id="submit" onclick="javascript:addInfo();">Lookup User</button>
+        <p id="output"></p>
     </div>
-    <h1>View User</h1>
-    <br>
-    Please enter an ETN username:<br>
-    <input type="text" id="lookup"><br>
-    Please enter your password:<br>
-    <input type="password" id="pass"><br>
-    <button id="submit" onclick="javascript:addInfo();">Lookup User</button>
-    <p id="output"></p>
   </body>
 </html>

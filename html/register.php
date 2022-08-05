@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Eigen Trust Network - Register</title>
+    <?php
+        $PAGE_TITLE = "Register";
+        require("head.php");
+    ?>
     <style>
-        body {
+        .container {
             text-align: center;
         }
         table {
@@ -69,23 +72,27 @@
         }
     </script>
   </head>
+
   <body onload="javascript:addListeners();">
-    <h1>Register</h1>
-    <span id="notice"></span>
-    <table>
-    <tr>
-        <td>Username:</td>
-        <td><input id="username" type="text"></td>
-    </tr>
-    <tr>
-        <td>Password:</td>
-        <td><input id="password" type="password"></td>
-    </tr>
-    <tr>
-        <td>Confirm:</td>
-        <td><input id="confirm" type="password"></td>
-    </tr>
-    </table>
-    <button id="register" onclick="javascript:register()">Register</button>
+    <?php require("nav.php"); ?>
+    <div class="container">
+        <h1>Register</h1>
+        <span id="notice"></span>
+        <table>
+        <tr>
+            <td>Username:</td>
+            <td><input id="username" type="text"></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input id="password" type="password"></td>
+        </tr>
+        <tr>
+            <td>Confirm:</td>
+            <td><input id="confirm" type="password"></td>
+        </tr>
+        </table>
+        <button style="margin:4px;" class="btn btn-primary" id="register" onclick="javascript:register()">Register</button>
+    </div>
   </body>
 </html>
