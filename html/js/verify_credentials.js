@@ -26,7 +26,7 @@ xhttp.onreadystatechange = function(){
     if(this.readyState == 4 && this.status == 200){
         return;
     }else if(this.readyState == 4){
-        logout();
+        document.location.href="logout.html";
         document.getElementsByTagName("html")[0].innerHTML = "Please Login.";
     }
 }
