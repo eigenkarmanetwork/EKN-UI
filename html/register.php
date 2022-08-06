@@ -39,7 +39,7 @@
                 if(this.readyState == 4 && this.status == 200){
                     document.getElementById("notice").innerHTML = "Success";
                     document.getElementById("notice").style = "color: green;";
-                    window.location.href = "https://www.eigentrust.net/index.html";
+                    window.location.href = "https://www.eigentrust.net/login.php";
                 }else if(this.readyState == 4 && this.status == 409){
                     document.getElementById("notice").innerHTML = "Username is not available.";
                     document.getElementById("notice").style = "color: red;";
