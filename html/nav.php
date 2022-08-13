@@ -11,6 +11,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/">Home</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about.php">About Us</a>
+                </li>
                 <?php
                     if(isset($_COOKIE["username"])){
                         echo '
