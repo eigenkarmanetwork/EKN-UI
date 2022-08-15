@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head prefix="og: https://ogp.me/ns#">
+  <head>
     <?php
         $PAGE_TITLE = "Home";
         require("head.php")
     ?>
-    <meta property="og:title" content="EigenTrust Network" />
-    <meta property="og:description" content="Trust is powerful."/>
-    <meta property="og:image" content="https://www.eigentrust.net/images/logo.png"/>
   </head>
   <body>
     <?php require("nav.php"); ?>
