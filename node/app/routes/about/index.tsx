@@ -1,5 +1,6 @@
-import type { MetaFunction } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import type { LoaderFunction, MetaFunction } from "@remix-run/node";
+import { DashboardLoader } from "~/dashboard.tsx";
+import Dashboard from "~/dashboard.tsx";
 
 export const meta: MetaFunction = () => {
     return {
@@ -7,9 +8,14 @@ export const meta: MetaFunction = () => {
     };
 };
 
+export const loader: LoaderFunction = async () => {
+    return await DashboardLoader();
+};
+
 export default function About(){
     return (
         <div className="container">
+            <Dashboard />
             <h1>About the EigenTrust Network</h1>
             <p>Trust is powerful. Knowing who is capable, value aligned, or has done good work in the past is extremely valuable for all sorts of decisions, but currently it takes lots of effort to collect this information. Imagine if you could leverage your trust network’s collective knowledge to get a read of hundreds or thousands of times as many people, with minimal effort!</p>
 

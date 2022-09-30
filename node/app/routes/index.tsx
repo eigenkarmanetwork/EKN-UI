@@ -1,9 +1,15 @@
-import type { MetaFunction } from "@remix-run/node";
+import type { LoaderFunction, MetaFunction } from "@remix-run/node";
+import { DashboardLoader } from "~/dashboard.tsx";
+import Dashboard from "~/dashboard.tsx";
 
 export const meta: MetaFunction = () => {
     return {
         title: "EigenTrust Network - Home",
     };
+};
+
+export const loader: LoaderFunction = async () => {
+    return await DashboardLoader();
 };
 
 export default function Index() {
@@ -14,34 +20,7 @@ export default function Index() {
         <p>That is what EigenTrust Network is creating. We use an algorithm similar to Google's PageRank to model trust propagation, setting the subjective source of all trust to each individual. So that from your personal view of the network you can see how much of your trust has flowed to anyone else.</p>
 
         <p>We think this tool can empower humanity in many ways, and are particularly excited about its applications in grantmaking in the field our team is focused on; AI alignment.</p>
-        { /*
-        <?php
-            $ch = curl_init("https://www.eigentrust.net:31415/get_total_users");
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            $total_users = curl_exec($ch);
-            curl_close($ch);
-
-            $ch = curl_init("https://www.eigentrust.net:31415/get_total_real_users");
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            $total_real_users = curl_exec($ch);
-            curl_close($ch);
-
-            $ch = curl_init("https://www.eigentrust.net:31415/get_total_temp_users");
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            $total_temp_users = curl_exec($ch);
-            curl_close($ch);
-
-            $ch = curl_init("https://www.eigentrust.net:31415/get_total_votes");
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            $total_votes = curl_exec($ch);
-            curl_close($ch);
-        ?>
-        <div className="alert alert-success" style={{text-align: "center"}}>
-            <strong>Current Users in the ETN: </strong> <?php echo $total_users; ?>
-            (<?php echo $total_real_users; ?> real, <?php echo $total_temp_users; ?> temporary)
-            <strong>Current Votes in the ETN: </strong> <?php echo $total_votes; ?>
-        </div>
-        */ }
+        <Dashboard />
     </div>
   );
 }
