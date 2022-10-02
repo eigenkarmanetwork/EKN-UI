@@ -5,7 +5,7 @@ export default function Nav() {
         <nav className="navbar navbar-expand-sm bg-light navbar-light">
             <div className="container-fluid">
                 <Link to="" className="navbar-brand">
-                    <img src="images/logo.png" alt="ETN Logo" style={{width:"40px"}} className="rounded-pill" />
+                    <img src="images/logo.png" alt="EKN Logo" style={{width:"40px"}} className="rounded-pill" />
                 </Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
                     <span className="navbar-toggler-icon"></span>

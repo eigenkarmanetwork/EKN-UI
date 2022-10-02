@@ -12,7 +12,7 @@ import favicon from "~/../public/images/logo.png"
 import Nav from "~/nav.tsx"
 
 export const meta: MetaFunction = () => ({
-    title: "EigenTrust Network",
+    title: "EigenKarma Network",
 });
 
 export default function App() {
@@ -43,7 +43,7 @@ export function ErrorBoundary({ error }) {
     return (
         <html lang="en">
             <head>
-                <title>EigenTrust Network - Error</title>
+                <title>EigenKarma Network - Error</title>
                 <link rel="icon" type="image/png" href={favicon} />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />

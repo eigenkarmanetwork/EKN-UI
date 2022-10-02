@@ -35,9 +35,9 @@ export default function Dashboard(){
     let total_votes = data["total_votes"];
     return (
         <div className="alert alert-success" style={{textAlign: "center"}}>
-            <strong>Current Users in the ETN: </strong>{total_users}{" "}
+            <strong>Current Users in the EKN: </strong>{total_users}{" "}
             ({total_real_users} real, {total_temp_users} temporary){" "}
-            <strong>Current Votes in the ETN: </strong>{total_votes}
+            <strong>Current Votes in the EKN: </strong>{total_votes}
         </div>
     )
 }
