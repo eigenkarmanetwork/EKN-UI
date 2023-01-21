@@ -33,11 +33,21 @@ export default function Account(){
         <div className="container">
             <h1>Welcome {session.username}</h1>
             <h4>Trust</h4>
+            <Link className="btn btn-secondary" to="/account/lookup">
+                View User
+            </Link>
+            <br/><br/>
             <Link className="btn btn-secondary" to="/about">
-                Test
+                Trust User
             </Link>
             <h4>Settings</h4>
+            <Link className="btn btn-danger" to="/about">
+                Change Security Settings
+            </Link>
             <h4>GDPR</h4>
+            <Link className="btn btn-secondary" to="/about">
+                Get All Data About Me
+            </Link>
         </div>
     )
 }
