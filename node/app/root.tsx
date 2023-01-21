@@ -15,6 +15,16 @@ export const meta: MetaFunction = () => ({
     title: "EigenKarma Network",
 });
 
+import type { LoaderFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
+import { Link, useLoaderData } from "@remix-run/react";
+import { getSession, commitSession } from "~/sessions.tsx";
+
+export const loader: LoaderFunction = async ({ request }) => {
+    const session = await getSession(request.headers.get("Cookie"));
+    return json(session);
+};
+
 export default function App() {
     return (
         <html lang="en">

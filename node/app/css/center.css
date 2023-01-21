@@ -1,0 +1,10 @@
+.container{
+    text-align: center;
+}
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+#notice {
+    color: red;
+}
