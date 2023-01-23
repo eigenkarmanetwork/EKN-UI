@@ -38,7 +38,7 @@ export default function Account(){
             </Link>
             <br/><br/>
             <Link className="btn btn-secondary" to="/account/trust">
-                Trust User
+                Manage Votes for User
             </Link>
             <h4>Settings</h4>
             <Link className="btn btn-danger" to="/about">

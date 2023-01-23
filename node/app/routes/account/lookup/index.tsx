@@ -136,7 +136,7 @@ export default function Lookup(){
             <h1>Lookup User</h1>
             <br/>
             <Form method="POST">
-                Please enter an ETN username:<br/>
+                Please enter an EKN username:<br/>
                 <input type="text" name="lookup"/><br/>
                 {(needs_password(session) ? password_prompt() : "")}
                 <button style={{margin: "5px"}} className="btn btn-primary">

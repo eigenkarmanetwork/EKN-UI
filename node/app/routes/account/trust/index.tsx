@@ -207,10 +207,10 @@ export default function Trust(){
     const request = useActionData();
     return (
         <div className="container">
-            <h1>Trust User</h1>
+            <h1>Manage Votes for User</h1>
             <br/>
             <Form method="POST">
-                Please enter an ETN username:<br/>
+                Please enter an EKN username:<br/>
                 {username_prompt(request, session)}
                 <p>{format_results(request)}</p>
             </Form>
