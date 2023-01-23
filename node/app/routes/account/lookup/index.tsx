@@ -48,9 +48,20 @@ async function lookup(session, lookup){
     if(response.status != 200){
         return {error: await response.text()};
     }
-    const response_data = await response.json();
-    console.log(response_data);
-    return response_data;
+    var response_data = await response.json();
+    var ret = {
+        for: response_data.for,
+        score: response_data.score,
+        flavor: response_data.flavor
+    }
+    var response = await fetch(
+        "https://www.eigentrust.net:31415/get_vote_count",
+        {method: "POST", headers: headers, body: data}
+    );
+    response_data = await response.json();
+    ret.votes = response_data.votes;
+    console.log(ret);
+    return ret;
 }
 
 async function lookup_wp(session, lookup, password){
@@ -72,9 +83,20 @@ async function lookup_wp(session, lookup, password){
     if(response.status != 200){
         return {error: await response.text()};
     }
-    const response_data = await response.json();
-    console.log(response_data);
-    return response_data;
+    var response_data = await response.json();
+    var ret = {
+        for: response_data.for,
+        score: response_data.score,
+        flavor: response_data.flavor
+    }
+    var response = await fetch(
+        "https://www.eigentrust.net:31415/get_vote_count",
+        {method: "POST", headers: headers, body: data}
+    );
+    response_data = await response.json();
+    ret.votes = response_data.votes;
+    console.log(ret);
+    return ret;
 }
 
 export async function action({ request }){
@@ -109,7 +131,8 @@ function format_results(request){
 
     return (
         <>
-            {request.for}'s {request.flavor} trust within your network is {request.score}.
+            {request.for}'s {request.flavor} trust within your network is {request.score}.<br/>
+            You have voted for {request.for} {request.votes} {(request.votes == 1 ? "time" : "times")}.
         </>
     );
 }
