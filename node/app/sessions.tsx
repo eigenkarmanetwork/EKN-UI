@@ -5,8 +5,9 @@ const { getSession, commitSession, destroySession } =
         cookie: {
             name: "__session__",
             path: "/",
-            maxAge: 600,
+            // maxAge: 600,
             secure: true,
+            secrets: [process.env.ETN_COOKIE_SIGNATURE],
         }
     });
 

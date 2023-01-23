@@ -37,7 +37,7 @@ export default function Account(){
                 View User
             </Link>
             <br/><br/>
-            <Link className="btn btn-secondary" to="/about">
+            <Link className="btn btn-secondary" to="/account/trust">
                 Trust User
             </Link>
             <h4>Settings</h4>
