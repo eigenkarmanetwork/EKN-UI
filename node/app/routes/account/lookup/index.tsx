@@ -45,6 +45,7 @@ async function lookup(session, lookup){
         "https://www.eigentrust.net:31415/get_score",
         {method: "POST", headers: headers, body: data}
     );
+    console.log(response.status);
     if(response.status != 200){
         return {error: await response.text()};
     }
@@ -129,6 +130,22 @@ function format_results(request){
         return (<></>);
     }
 
+    if("error" in request){
+        switch(request.error){
+            case "'for' is not connected to this service.":
+                request.error = "Username does not exist.";
+                break;
+            case "User cannot view themselves.":
+                request.error = "You cannot lookup yourself.";
+                break;
+        }
+        return (
+            <div id="notice">
+                {request.error}
+            </div>
+        )
+    }
+
     return (
         <>
             {request.for}'s {request.flavor} trust within your network is {request.score}.<br/>
@@ -138,7 +155,7 @@ function format_results(request){
 }
 
 
-export default function Account(){
+export default function Lookup(){
     const session = useLoaderData().data;
     const request = useActionData();
     return (
