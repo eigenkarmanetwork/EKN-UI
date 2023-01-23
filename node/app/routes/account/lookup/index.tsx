@@ -28,16 +28,7 @@ export const loader: LoaderFunction = async ({ request }) => {
     return json(session, {headers: {"Set-Cookie": await commitSession(session)}});
 };
 
-async function lookup(session, lookup){
-    session = session.data;
-    var data = JSON.stringify({
-        service_name: "ETN",
-        service_key: process.env.ETN_SERVICE_KEY,
-        for: lookup,
-        from: session.username,
-        password: session.key,
-        password_type: session.type
-    });
+async function lookup(data){
     var headers = new Headers();
     headers.append("Content-type", "application/json");
     headers.append("Accept", "text/plain");
@@ -65,51 +56,33 @@ async function lookup(session, lookup){
     return ret;
 }
 
-async function lookup_wp(session, lookup, password){
+export async function action({ request }){
+    const body = await request.formData();
+    var session = await getSession(request.headers.get("Cookie"));
     session = session.data;
+    const username = body.get("lookup");
+    console.log("Lookup: " + username);
+    const password = body.get("pass");
+    if(password == null){
+        var data = JSON.stringify({
+            service_name: "ETN",
+            service_key: process.env.ETN_SERVICE_KEY,
+            for: username,
+            from: session.username,
+            password: session.key,
+            password_type: session.type
+        });
+        console.log(data);
+        return lookup(data);
+    }
     var data = JSON.stringify({
         service_name: "ETN",
         service_key: process.env.ETN_SERVICE_KEY,
-        for: lookup,
+        for: username,
         from: session.username,
         password: password
     });
-    var headers = new Headers();
-    headers.append("Content-type", "application/json");
-    headers.append("Accept", "text/plain");
-    var response = await fetch(
-        "https://www.eigentrust.net:31415/get_score",
-        {method: "POST", headers: headers, body: data}
-    );
-    if(response.status != 200){
-        return {error: await response.text()};
-    }
-    var response_data = await response.json();
-    var ret = {
-        for: response_data.for,
-        score: response_data.score,
-        flavor: response_data.flavor
-    }
-    var response = await fetch(
-        "https://www.eigentrust.net:31415/get_vote_count",
-        {method: "POST", headers: headers, body: data}
-    );
-    response_data = await response.json();
-    ret.votes = response_data.votes;
-    console.log(ret);
-    return ret;
-}
-
-export async function action({ request }){
-    const body = await request.formData();
-    const session = await getSession(request.headers.get("Cookie"));
-    console.log(body)
-    const username = body.get("lookup");
-    const password = body.get("pass");
-    if(password == null){
-        return lookup(session, username);
-    }
-    return lookup_wp(session, username, password);
+    return lookup(data);
 }
 
 function password_prompt(){
