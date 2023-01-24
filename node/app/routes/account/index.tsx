@@ -41,7 +41,7 @@ export default function Account(){
                 Manage Votes for User
             </Link>
             <h4>Settings</h4>
-            <Link className="btn btn-danger" to="/about">
+            <Link className="btn btn-danger" to="/account/security">
                 Change Security Settings
             </Link>
             <h4>GDPR</h4>
