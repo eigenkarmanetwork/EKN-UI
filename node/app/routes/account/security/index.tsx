@@ -105,7 +105,7 @@ export default function Security(){
                 <input type="hidden" value="level" name="action"/>
                 <h4>Change Security Level</h4>
                 <p>
-                    There are three security settings with ETN.<br/>
+                    There are three security settings with EKN.<br/>
                     The lowest security setting rquires you to sign in to make a new connection.<br/>
                     The medium security setting requires you to sign in once a day to be able to vote.<br/>
                     The higest security setting requires you to sign in every time you want to vote.
