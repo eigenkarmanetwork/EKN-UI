@@ -36,7 +36,8 @@ async function lookup(username, password, session){
             for: username,
             from: session.username,
             password: session.key,
-            password_type: session.type
+            password_type: session.type,
+            flavor: "general"
         });
         return __lookup(data);
     }
@@ -45,7 +46,8 @@ async function lookup(username, password, session){
         service_key: process.env.ETN_SERVICE_KEY,
         for: username,
         from: session.username,
-        password: password
+        password: password,
+        flavor: "general"
     });
     return __lookup(data);
 }
