@@ -45,7 +45,7 @@ export default function Account(){
                 Change Security Settings
             </Link>
             <h4>GDPR</h4>
-            <Link className="btn btn-secondary" to="/about">
+            <Link className="btn btn-secondary" to="/account/gdpr">
                 Get All Data About Me
             </Link>
         </div>
