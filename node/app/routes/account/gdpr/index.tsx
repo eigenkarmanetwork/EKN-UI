@@ -177,6 +177,7 @@ export default function GDPR(){
             </Form>
             <div id="output">
             </div>
+            <br/>
         </div>
     )
 }
