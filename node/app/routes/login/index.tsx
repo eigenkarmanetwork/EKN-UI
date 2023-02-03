@@ -28,7 +28,7 @@ export async function action({ request }){
     headers.append("Content-type", "application/json");
     headers.append("Accept", "text/plain");
     var response = await fetch(
-        "https://www.eigentrust.net:31415/verify_credentials",
+        "https://www.eigenkarma.net:31415/verify_credentials",
         {method: "POST", headers: headers, body: data}
     );
     console.log(response);

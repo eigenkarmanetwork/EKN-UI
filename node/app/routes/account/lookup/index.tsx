@@ -33,7 +33,7 @@ async function lookup(data){
     headers.append("Content-type", "application/json");
     headers.append("Accept", "text/plain");
     var response = await fetch(
-        "https://www.eigentrust.net:31415/get_score",
+        "https://www.eigenkarma.net:31415/get_score",
         {method: "POST", headers: headers, body: data}
     );
     console.log(response.status);
@@ -47,7 +47,7 @@ async function lookup(data){
         flavor: response_data.flavor
     }
     var response = await fetch(
-        "https://www.eigentrust.net:31415/get_vote_count",
+        "https://www.eigenkarma.net:31415/get_vote_count",
         {method: "POST", headers: headers, body: data}
     );
     response_data = await response.json();

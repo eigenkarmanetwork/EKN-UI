@@ -7,16 +7,16 @@ export const DashboardLoader: LoaderFunction = async () => {
     var total_temp_users: number;
     var total_votes: number;
 
-    var data = await fetch("https://www.eigentrust.net:31415/get_total_users");
+    var data = await fetch("https://www.eigenkarma.net:31415/get_total_users");
     total_users = await data.json()
 
-    data = await fetch("https://www.eigentrust.net:31415/get_total_real_users");
+    data = await fetch("https://www.eigenkarma.net:31415/get_total_real_users");
     total_real_users = await data.json()
 
-    data = await fetch("https://www.eigentrust.net:31415/get_total_temp_users");
+    data = await fetch("https://www.eigenkarma.net:31415/get_total_temp_users");
     total_temp_users = await data.json()
 
-    data = await fetch("https://www.eigentrust.net:31415/get_total_votes");
+    data = await fetch("https://www.eigenkarma.net:31415/get_total_votes");
     total_votes = await data.json()
 
     return {

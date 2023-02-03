@@ -57,7 +57,7 @@ async function __lookup(data){
     headers.append("Content-type", "application/json");
     headers.append("Accept", "text/plain");
     var response = await fetch(
-        "https://www.eigentrust.net:31415/get_vote_count",
+        "https://www.eigenkarma.net:31415/get_vote_count",
         {method: "POST", headers: headers, body: data}
     );
     if(response.status != 200){
@@ -96,7 +96,7 @@ async function __vote(data){
     headers.append("Content-type", "application/json");
     headers.append("Accept", "text/plain");
     var response = await fetch(
-        "https://www.eigentrust.net:31415/vote",
+        "https://www.eigenkarma.net:31415/vote",
         {method: "POST", headers: headers, body: data}
     );
     if(response.status != 200){

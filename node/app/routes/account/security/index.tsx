@@ -37,7 +37,7 @@ async function level(password, session, security){
     headers.append("Content-type", "application/json");
     headers.append("Accept", "text/plain");
     var response = await fetch(
-        "https://www.eigentrust.net:31415/change_security",
+        "https://www.eigenkarma.net:31415/change_security",
         {method: "POST", headers: headers, body: data}
     );
     if(response.status != 200){
@@ -58,7 +58,7 @@ async function change_password(password, session, new_password){
     headers.append("Content-type", "application/json");
     headers.append("Accept", "text/plain");
     var response = await fetch(
-        "https://www.eigentrust.net:31415/change_password",
+        "https://www.eigenkarma.net:31415/change_password",
         {method: "POST", headers: headers, body: data}
     );
     console.log(response.status);

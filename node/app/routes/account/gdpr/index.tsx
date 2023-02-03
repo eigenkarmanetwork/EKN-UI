@@ -43,7 +43,7 @@ async function lookup(password, session){
     headers.append("Content-type", "application/json");
     headers.append("Accept", "text/plain");
     var response = await fetch(
-        "https://www.eigentrust.net:31415/gdpr_view",
+        "https://www.eigenkarma.net:31415/gdpr_view",
         {method: "POST", headers: headers, body: data}
     );
     if(response.status != 200){
