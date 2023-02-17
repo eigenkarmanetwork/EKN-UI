@@ -7,12 +7,14 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Update ETN Website
+      - name: Update EKN Website
         uses: appleboy/ssh-action@v0.1.2
         with:
-          host: eigentrust.net
+          host: eigenkarma.net
           username: ${{secrets.PROD_USERNAME}}
           password: ${{secrets.PROD_PASSWORD}}
           port: 22
           script: |
+            service etn_ui stop
             git --git-dir=/var/www/.git --work-tree=/var/www pull origin master
+            service etn_ui start
