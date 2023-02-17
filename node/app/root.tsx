@@ -13,7 +13,8 @@ import Nav from "~/nav.tsx"
 
 export const meta: MetaFunction = () => ({
     title: "EigenKarma Network",
-    "og:title": "EigenKarma Network"
+    "og:title": "EigenKarma Network",
+    "og:url": "https://www.eigenkarma.net/"
 });
 
 import type { LoaderFunction } from "@remix-run/node";
