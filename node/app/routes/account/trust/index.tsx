@@ -8,6 +8,7 @@ import { needs_password } from "~/needs_password.tsx";
 export const meta: MetaFunction = () => {
     return {
         title: "EigenKarma Network - Lookup User",
+        "og:title": "EigenKarma Network - Lookup User",
     };
 };
 

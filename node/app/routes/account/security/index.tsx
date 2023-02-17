@@ -7,6 +7,7 @@ import { getSession, commitSession } from "~/sessions.tsx";
 export const meta: MetaFunction = () => {
     return {
         title: "EigenKarma Network - Security Settings",
+        "og:title": "EigenKarma Network - Security Settings",
     };
 };
 

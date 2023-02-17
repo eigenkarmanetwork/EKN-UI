@@ -13,6 +13,7 @@ import Nav from "~/nav.tsx"
 
 export const meta: MetaFunction = () => ({
     title: "EigenKarma Network",
+    "og:title": "EigenKarma Network"
 });
 
 import type { LoaderFunction } from "@remix-run/node";
@@ -27,11 +28,17 @@ export const loader: LoaderFunction = async ({ request }) => {
 
 export default function App() {
     return (
-        <html lang="en">
+        <html lang="en" prefix="og: http://ogp.me/ns#">
             <head>
                 <Meta />
                 <Links />
                 <meta charSet="utf-8" />
+                <meta property="og:site_name" content="EigenKarma Network"/>
+                <meta property="og:description" content="Trust is powerful. Knowing who is capable, value aligned, or has done good work in the past is extremely valuable for all sorts of decisions, but currently it takes lots of effort to collect this information. Imagine if you could leverage your trust network's collective knowledge to get a read of hundreds or thousands of times as many people, with minimal effort!"/>
+                <meta property="og:type" content="website"/>
+                <meta property="og:image" content={"https://www.eigenkarma.net" + favicon}/>
+                <meta property="og:image:width" content="716"/>
+                <meta property="og:image:height" content="716"/>
                 <link rel="icon" type="image/png" href={favicon} />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />

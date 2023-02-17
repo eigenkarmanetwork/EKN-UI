@@ -7,6 +7,7 @@ import { getSession, destroySession } from "~/sessions.tsx";
 export const meta: MetaFunction = () => {
     return {
         title: "EigenKarma Network - Logout",
+        "og:title": "EigenKarma Network - Logout",
     };
 };
 

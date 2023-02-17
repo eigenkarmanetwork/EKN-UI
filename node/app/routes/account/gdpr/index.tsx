@@ -9,6 +9,7 @@ import { needs_password } from "~/needs_password.tsx";
 export const meta: MetaFunction = () => {
     return {
         title: "EigenKarma Network - GDPR View",
+        "og:title": "EigenKarma Network - GDPR View",
     };
 };
 
