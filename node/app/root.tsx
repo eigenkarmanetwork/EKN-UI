@@ -35,7 +35,7 @@ export default function App() {
                 <Links />
                 <meta charSet="utf-8" />
                 <meta property="og:site_name" content="EigenKarma Network"/>
-                <meta property="og:description" content="Trust is powerful. Knowing who is capable, value aligned, or has done good work in the past is extremely valuable for all sorts of decisions, but currently it takes lots of effort to collect this information. Imagine if you could leverage your trust network's collective knowledge to get a read of hundreds or thousands of times as many people, with minimal effort!"/>
+                <meta property="og:description" content="Trust at Scale."/>
                 <meta property="og:type" content="website"/>
                 <meta property="og:image" content={"https://www.eigenkarma.net" + favicon}/>
                 <meta property="og:image:width" content="716"/>
