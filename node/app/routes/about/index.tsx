@@ -25,7 +25,7 @@ export default function About(){
             <h3>How to Contribute</h3>
             <p>Just by joining the EKN and marking someone as trustworthy or otherwise, you contribute to our trust ecosystem. However, if you would like to contribute in other ways, the EKN is an open source project on GitHub.  By clicking on the picture below, you will be taken to our organization page.  From there, the EKN repository is where the EKN API source code is.  Feel free to download it and use it as a sandbox!  You can contribute to this website which is in the EKN-UI repository.  If you're interested in working on our <a href="http://discord.eigenkarma.net/">Discord Bot</a>, which brings the EKN to every server it is in, you can find that in the discord-bot repository.</p>
             <div style={{textAlign: "center"}}>
-                <a href="https://www.github.com/eigentrustnetwork"><img src="images/GitHub-Mark-120px-plus.png" alt="GitHub logo" /></a>
+                <a href="https://www.github.com/eigenkarmanetwork"><img src="images/GitHub-Mark-120px-plus.png" alt="GitHub logo" /></a>
             </div>
         </div>
     )
